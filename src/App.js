@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import NavigationBar from "./components/NavigationBar";
+import Country from "./pages/Country";
+import Competition from "./pages/Competition";
+import Clubs from "./pages/Clubs";
+import ClubProfile from "./pages/ClubProfile";
+import PlayerProfile from "./pages/PlayerProfile";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <NavigationBar />
+        <Switch>
+          <Route path="/" exact component={Country} />
+          <Route path="/competition/:countryId" component={Competition} />
+          <Route path="/clubs/:competitionId" component={Clubs} />
+          <Route path="/club-profile/:clubId" component={ClubProfile} />
+          <Route path="/player-profile/:playerId" component={PlayerProfile} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
