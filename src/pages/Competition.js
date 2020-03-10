@@ -11,7 +11,6 @@ function Competition({ match }) {
 
   const [competitions, setCompetitions] = useState([]);
   const [area, setArea] = useState([]);
-  const isDataExist = false;
 
   const getCompetition = async () => {
     const data = await fetch(

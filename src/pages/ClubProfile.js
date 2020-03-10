@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, Breadcrumb } from "react-bootstrap";
+import { Table, Breadcrumb, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function ClubProfile({ match }) {
@@ -37,6 +37,30 @@ function ClubProfile({ match }) {
         </Breadcrumb.Item>
         <Breadcrumb.Item active>{clubProfile.name}</Breadcrumb.Item>
       </Breadcrumb>
+
+      <Row style={{ marginBottom: 40, marginTop: 20 }}>
+        <Col md={4}>
+          <center>
+            <img src={clubProfile.crestUrl} style={{ width: 300 }} />
+          </center>
+        </Col>
+        <Col md={3}>
+          <center>
+            <br />
+            <br />
+            <h4>{clubProfile.name}</h4>
+            <a href={clubProfile.website}>{clubProfile.website}</a>
+            <br />
+            <br />
+            {clubProfile.venue}
+            <br />
+            {clubProfile.address}
+            <br />
+            {clubProfile.phone}
+          </center>
+        </Col>
+      </Row>
+
       <h5>Squad</h5>
       <Table hover style={{ marginTop: 10 }}>
         <thead>
